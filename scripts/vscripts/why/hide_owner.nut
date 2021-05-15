@@ -3,12 +3,13 @@ OLD_OWNER<-[];
 HIGH_LIGHT<-[];
 tick<-false;
 delay<-1.00;
+// 透明度 0-255
 HIDE_ALPHA<-50;
 // 半透明(rendermode 1)，改为10不渲染模型，不过有影子
 HIDE_MODE<-1;
 // 可以随时启用\禁用隐身
 HIDE_SWITCH<-true;
-// 常时刷新隐身，用于处理个别地图覆盖神器隐身的问题
+// 常时刷新隐身，用于处理个别地图神器隐身被覆盖的问题
 AUTO_HIDE<-false;
 // 启用颜色变化
 COLOR_CHANGE<-true;
@@ -125,19 +126,32 @@ function SetColor(index,needWait=true){
 		EntFireByHandle(self, "runscriptcode", "SetColor("+index.tostring()+",false)", 1, null, null);
 		return;
 	}
-	local name=WEAPON[index].GetOwner().GetName().tolower();
+	local btn=null;
+	while(null != (btn = Entities.FindInSphere(btn,WEAPON[index].GetOwner().GetOrigin(),50)))
+	{
+	   if(btn.GetClassname() == "func_button" && btn.GetRootMoveParent() == WEAPON[index].GetOwner()){
+	   		if(FindCfg(btn.GetName(),index))return;
+	   		break;
+	   }
+	}
+	FindCfg(WEAPON[index].GetOwner().GetName(),index);
+}
+
+function FindCfg(name,index){
+	name=name.tolower();
 	foreach(k,v in CUSTOM_COLOR){
 		if(name.find(k)<0)continue;
 		HIGH_LIGHT[index].__KeyValueFromString("glowcolor", v);
-		return;
+		return true;
 	}
 	foreach(k,v in COLOR_LIST){
 		for(local i=1;i<v.len();i++){
 			if(name.find(v[i])<0)continue;
 			HIGH_LIGHT[index].__KeyValueFromString("glowcolor", v[0]);
-			return;
+			return true;
 		}
 	}
+	return false;
 }
 
 // rendermode会带到下一局，如果没有开局还原的功能则执行此方法
@@ -154,8 +168,7 @@ function ClearPlayerHide(){
 function Init(){
 	IncludeScript("why/color_cfg.nut", this);
 	IncludeScript("why/map_cfg.nut", this);
-	ScriptPrintMessageChatAll(" \x03已加载神器隐身 20210411\x01");
+	ScriptPrintMessageChatAll(" \x03已加载神器隐身 20210515\x01");
 }
 
 self.ConnectOutput("OnSpawn", "Init");
-//repush
