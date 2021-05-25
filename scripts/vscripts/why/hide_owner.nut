@@ -20,6 +20,10 @@ function SetNewOwner(){
 	if(COLOR_LIST.len()<1){Init()};
 	local weapon=caller;
 	local player=activator;
+	if(player.GetTeam()!=3)return;
+	if(player.GetScriptScope()==null){player.ValidateScriptScope()}
+	if(weapon.GetScriptScope()==null){weapon.ValidateScriptScope()}
+	weapon.GetScriptScope().pickupEvents<-true;
 	local index=null;
 	for(local i=0;i<WEAPON.len();i++){
 		if(WEAPON[i]==weapon){
@@ -48,7 +52,9 @@ function SetNewOwner(){
 		SetColor(index);
 	}
 	EntFireByHandle(player, "alpha", HIDE_ALPHA.tostring(), 0, null, null);
-	EntFireByHandle(player, "runscriptcode", "hide<-false", 0, null, null);
+	player.GetScriptScope().hide<-false;
+	//EntFireByHandle(player, "runscriptcode", "hide<-false", 0, null, null);
+	weapon.GetScriptScope().pickupEvents<-false;
 	if(!tick){
 		tick=true;
 		Tick();
@@ -60,7 +66,7 @@ function Tick(){
 		EntFireByHandle(self, "runscriptcode", "Tick()", delay, null, null);
 		for(local i=0;i<WEAPON.len();i++){
 			local weapon=WEAPON[i];
-			if(!weapon.IsValid()||null==weapon.GetOwner()){
+			if(!weapon.IsValid()||null==weapon.GetOwner()||!weapon.GetOwner().IsValid()||3!=weapon.GetOwner().GetTeam()){
 				if(""!=HIGH_LIGHT[i]){
 					HIGH_LIGHT[i].Destroy();
 					HIGH_LIGHT[i]="";
@@ -71,6 +77,8 @@ function Tick(){
 				}
 			}else if(weapon.GetOwner()==OLD_OWNER[i]){
 				hidePlayer(OLD_OWNER[i],true);
+			}else if(!weapon.GetScriptScope().pickupEvents){
+				EntFireByHandle(self, "runscriptcode", "SetNewOwner()", 0, weapon.GetOwner(), weapon);
 			}
 		}
 	}
@@ -168,7 +176,7 @@ function ClearPlayerHide(){
 function Init(){
 	IncludeScript("why/color_cfg.nut", this);
 	IncludeScript("why/map_cfg.nut", this);
-	ScriptPrintMessageChatAll(" \x03已加载神器隐身 20210515\x01");
+	ScriptPrintMessageChatAll(" \x03已加载神器隐身 20210525\x01");
 }
 
 self.ConnectOutput("OnSpawn", "Init");
