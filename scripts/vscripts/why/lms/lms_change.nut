@@ -90,6 +90,8 @@ function ClearSummonOnL3(){
     }
     if(PortalList.len()<2)return;
     if(!PortalList[1].IsValid()&&PortalList[0].IsValid()){
+        local tmp=PortalList[1];
         PortalList[1]=PortalList[0];
+        PortalList[0]=tmp;
     }
 }
