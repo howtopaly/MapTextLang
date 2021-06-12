@@ -38,7 +38,7 @@ function SetNewOwner(){
 		HIGH_LIGHT.push(CreateGlow(player,weapon,index));
 	}else{
 		if(""!=HIGH_LIGHT[index]){
-			EntFire("hl_glow_"+i.tostring(),"kill","",0,null);	
+			EntFire("hl_glow_"+index.tostring(),"kill","",0,null);	
 			HIGH_LIGHT[index]="";
 		}
 		if(""!=OLD_OWNER[index]){
@@ -46,7 +46,7 @@ function SetNewOwner(){
 			OLD_OWNER[index]="";
 		}
 		OLD_OWNER[index]=player;
-		HIGH_LIGHT[index]=CreateGlow(player,weapon,index);
+		//HIGH_LIGHT[index]=CreateGlow(player,weapon,index);
 	}
 	if(COLOR_CHANGE){
 		SetColor(index);
@@ -74,6 +74,9 @@ function Tick(){
 					OLD_OWNER[i]="";
 				}
 			}else if(weapon.GetOwner()==OLD_OWNER[i]){
+				if(HIGH_LIGHT[i]==""){
+					HIGH_LIGHT[i]=CreateGlow(weapon.GetOwner(),weapon,i);
+				}
 				hidePlayer(OLD_OWNER[i],true,i);
 			}else if(!weapon.GetScriptScope().pickupEvents){
 				EntFireByHandle(self, "runscriptcode", "SetNewOwner()", 0, weapon.GetOwner(), weapon);
@@ -184,7 +187,7 @@ function ClearPlayerHide(){
 function Init(){
 	IncludeScript("why/color_cfg.nut", this);
 	IncludeScript("why/map_cfg.nut", this);
-	ScriptPrintMessageChatAll(" \x03已加载神器隐身 20210612 17:30\x01");
+	ScriptPrintMessageChatAll(" \x03已加载神器隐身 20210612\x01");
 }
 
 self.ConnectOutput("OnSpawn", "Init");
