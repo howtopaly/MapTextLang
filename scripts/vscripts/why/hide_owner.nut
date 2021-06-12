@@ -38,7 +38,7 @@ function SetNewOwner(){
 		HIGH_LIGHT.push(CreateGlow(player,weapon,index));
 	}else{
 		if(""!=HIGH_LIGHT[index]){
-			EntFire("hl_glow_"+i.tostring(),"kill","",0,null);	
+			EntFire("hl_glow_"+index.tostring(),"kill","",0,null);	
 			HIGH_LIGHT[index]="";
 		}
 		if(""!=OLD_OWNER[index]){
@@ -184,7 +184,7 @@ function ClearPlayerHide(){
 function Init(){
 	IncludeScript("why/color_cfg.nut", this);
 	IncludeScript("why/map_cfg.nut", this);
-	ScriptPrintMessageChatAll(" \x03已加载神器隐身 20210612 17:30\x01");
+	ScriptPrintMessageChatAll(" \x03已加载神器隐身 20210612\x01");
 }
 
 self.ConnectOutput("OnSpawn", "Init");
