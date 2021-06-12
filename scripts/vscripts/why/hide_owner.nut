@@ -38,7 +38,9 @@ function SetNewOwner(){
 		HIGH_LIGHT.push(CreateGlow(player,weapon,index));
 	}else{
 		if(""!=HIGH_LIGHT[index]){
-			HIGH_LIGHT[index].Destroy();
+			if(HIGH_LIGHT[i].IsValid()&&HIGH_LIGHT[i].GetClassname()=="prop_dynamic_glow"){
+				HIGH_LIGHT[i].Destroy();
+			}
 			HIGH_LIGHT[index]="";
 		}
 		if(""!=OLD_OWNER[index]){
