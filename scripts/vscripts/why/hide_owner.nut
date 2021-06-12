@@ -66,7 +66,7 @@ function Tick(){
 			local weapon=WEAPON[i];
 			if(!weapon.IsValid()||null==weapon.GetOwner()||!weapon.GetOwner().IsValid()||3!=weapon.GetOwner().GetTeam()){
 				if(""!=HIGH_LIGHT[i]){
-					if(HIGH_LIGHT[i].IsValid()){
+					if(HIGH_LIGHT[i].IsValid()&&HIGH_LIGHT[i].GetClassname()=="prop_dynamic_glow"){
 						HIGH_LIGHT[i].Destroy();
 					}
 					HIGH_LIGHT[i]="";
