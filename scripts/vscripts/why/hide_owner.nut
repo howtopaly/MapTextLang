@@ -38,9 +38,7 @@ function SetNewOwner(){
 		HIGH_LIGHT.push(CreateGlow(player,weapon,index));
 	}else{
 		if(""!=HIGH_LIGHT[index]){
-			if(HIGH_LIGHT[i].IsValid()&&HIGH_LIGHT[i].GetClassname()=="prop_dynamic_glow"){
-				HIGH_LIGHT[i].Destroy();
-			}
+			EntFire("hl_glow_"+i.tostring(),"kill","",0,null);	
 			HIGH_LIGHT[index]="";
 		}
 		if(""!=OLD_OWNER[index]){
@@ -68,9 +66,7 @@ function Tick(){
 			local weapon=WEAPON[i];
 			if(!weapon.IsValid()||null==weapon.GetOwner()||!weapon.GetOwner().IsValid()||3!=weapon.GetOwner().GetTeam()){
 				if(""!=HIGH_LIGHT[i]){
-					if(HIGH_LIGHT[i].IsValid()&&HIGH_LIGHT[i].GetClassname()=="prop_dynamic_glow"){
-						HIGH_LIGHT[i].Destroy();
-					}
+					EntFire("hl_glow_"+i.tostring(),"kill","",0,null);
 					HIGH_LIGHT[i]="";
 				}
 				if(""!=OLD_OWNER[i]){
