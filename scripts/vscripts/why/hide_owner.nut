@@ -10,7 +10,7 @@ HIDE_MODE<-1;
 // 可以随时启用\禁用隐身
 HIDE_SWITCH<-true;
 // 常时刷新隐身，用于处理个别地图神器隐身被覆盖的问题
-AUTO_HIDE<-false;
+AUTO_HIDE<-true;
 // 启用颜色变化
 COLOR_CHANGE<-true;
 COLOR_LIST<-{};
@@ -51,9 +51,7 @@ function SetNewOwner(){
 	if(COLOR_CHANGE){
 		SetColor(index);
 	}
-	EntFireByHandle(player, "alpha", HIDE_ALPHA.tostring(), 0, null, null);
 	player.GetScriptScope().hide<-false;
-	//EntFireByHandle(player, "runscriptcode", "hide<-false", 0, null, null);
 	weapon.GetScriptScope().pickupEvents<-false;
 	if(!tick){
 		tick=true;
@@ -68,7 +66,7 @@ function Tick(){
 			local weapon=WEAPON[i];
 			if(!weapon.IsValid()||null==weapon.GetOwner()||!weapon.GetOwner().IsValid()||3!=weapon.GetOwner().GetTeam()){
 				if(""!=HIGH_LIGHT[i]){
-					if(HIGH_LIGHT[i].IsValid()){
+					if(HIGH_LIGHT[i].IsValid()&&HIGH_LIGHT[i].GetClassname()=="prop_dynamic_glow"){
 						HIGH_LIGHT[i].Destroy();
 					}
 					HIGH_LIGHT[i]="";
@@ -78,7 +76,7 @@ function Tick(){
 					OLD_OWNER[i]="";
 				}
 			}else if(weapon.GetOwner()==OLD_OWNER[i]){
-				hidePlayer(OLD_OWNER[i],true);
+				hidePlayer(OLD_OWNER[i],true,i);
 			}else if(!weapon.GetScriptScope().pickupEvents){
 				EntFireByHandle(self, "runscriptcode", "SetNewOwner()", 0, weapon.GetOwner(), weapon);
 			}
@@ -86,7 +84,7 @@ function Tick(){
 	}
 }
 
-function hidePlayer(player,hide){
+function hidePlayer(player,hide,index=-1){
 	if(!player.IsValid())return;
 	local pscr=player.GetScriptScope();
 	if(pscr==null)return;
@@ -95,13 +93,17 @@ function hidePlayer(player,hide){
 		if(!pscr.hide||AUTO_HIDE){
 			pscr.hide=true;
 			player.__KeyValueFromInt("rendermode",HIDE_MODE);
-			EntFireByHandle(player, "alpha", HIDE_ALPHA.tostring(), 0, null, null);
+			player.__KeyValueFromInt("renderamt",HIDE_ALPHA);
+			HIGH_LIGHT[index].__KeyValueFromInt("rendermode",1);
 		}
 		return;
 	}
 	if(pscr.hide){
 		pscr.hide=false;
 		player.__KeyValueFromInt("rendermode",0);
+		if(hide){
+			HIGH_LIGHT[index].__KeyValueFromInt("rendermode",10);
+		}
 	}
 }
 
@@ -117,11 +119,14 @@ function CreateGlow(activator,object,index){
 	glow.__KeyValueFromInt("glowstyle", 2);
 	glow.__KeyValueFromInt("rendermode", 1);
 	glow.__KeyValueFromInt("renderfx", 14);
+	glow.__KeyValueFromInt("renderamt",50);
+	glow.__KeyValueFromInt("disableshadows",1);
+	glow.__KeyValueFromInt("disablereceiveshadows",1);
+	glow.__KeyValueFromInt("disableshadowdepth",1);
 	local name="hl_glow_"+index.tostring();
 	glow.__KeyValueFromString("targetname", name);
 	par <- Entities.CreateByClassname("info_particle_system");
 	EntFireByHandle(par, "SetParent", name, 0, null, null);
-	EntFireByHandle(glow, "Alpha", "50", 0, activator, object);
 	EntFireByHandle(glow, "SetParent", "!activator", 0, activator, object);
 	//EntFireByHandle(glow, "SetParentAttachment", "pistol", 0.01, null, null);
 	//EntFireByHandle(glow, "SetParentAttachment", "Knife", 0.01, null, null);
@@ -137,13 +142,15 @@ function SetColor(index,needWait=true){
 		EntFireByHandle(self, "runscriptcode", "SetColor("+index.tostring()+",false)", 1, null, null);
 		return;
 	}
-	local btn=null;
-	while(null != (btn = Entities.FindInSphere(btn,WEAPON[index].GetOwner().GetOrigin(),50)))
-	{
-	   if(btn.GetClassname() == "func_button" && btn.GetRootMoveParent() == WEAPON[index].GetOwner()){
-		if(FindCfg(btn.GetName(),index))return;
-		break;
-	   }
+	if(CUSTOM_COLOR.len()>0){
+		local btn=null;
+		while(null != (btn = Entities.FindInSphere(btn,WEAPON[index].GetOwner().GetOrigin(),50)))
+		{
+		   if(btn.GetClassname() == "func_button" && btn.GetRootMoveParent() == WEAPON[index].GetOwner()){
+			if(FindCfg(btn.GetName(),index))return;
+			break;
+		   }
+		}	
 	}
 	FindCfg(WEAPON[index].GetOwner().GetName(),index);
 }
@@ -179,7 +186,7 @@ function ClearPlayerHide(){
 function Init(){
 	IncludeScript("why/color_cfg.nut", this);
 	IncludeScript("why/map_cfg.nut", this);
-	ScriptPrintMessageChatAll(" \x03已加载神器隐身 20210611\x01");
+	ScriptPrintMessageChatAll(" \x03已加载神器隐身 20210612\x01");
 }
 
 self.ConnectOutput("OnSpawn", "Init");
