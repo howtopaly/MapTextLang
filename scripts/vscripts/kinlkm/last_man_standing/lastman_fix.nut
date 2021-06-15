@@ -1419,7 +1419,7 @@ function CheckEventsCompleted()
 	}
 	if(EVENT_ARRAY[15][1] == "COMPLETED" && STAGE == 5 || EVENT_ARRAY[15][1] == "COMPLETED" && STAGE == 10)
 	{
-		EntFire("Zombie_Item_Summoner_Template","AddOutput","origin 4752 4792 10780",0.00,null);
+		EntFire("Zombie_Item_Summoner_Template","AddOutput","origin 5327 2006 11737",0.00,null);
 		EntFire("Zombie_Item_Summoner_Template","ForceSpawn","",0.50,null);
 	}
 	if(EVENT_ARRAY[16][1] == "COMPLETED" && STAGE == 5 || EVENT_ARRAY[16][1] == "COMPLETED" && STAGE == 10)
