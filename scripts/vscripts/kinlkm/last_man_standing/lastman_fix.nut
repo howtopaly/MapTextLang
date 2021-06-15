@@ -362,7 +362,7 @@ SpawnTp <- true;
 AfkTp <- 0;
 EXTREME <- false;
 Music <- true;
-MaxVolume <- 10;
+MaxVolume <- 2;
 PlayersArr <- [];
 Zone_Kill <- null;
 
