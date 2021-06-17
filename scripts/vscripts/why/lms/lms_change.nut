@@ -1,5 +1,6 @@
 SummonerMaxUses = 30;
 PortalList<-[];
+SpeedM<-null
 
 function UseItemSummoner()
 {
@@ -69,6 +70,14 @@ function DetectSummoner(){
 
 function SummonTele(){
     if(!SummonerCaller.IsValid()||!SummonerAct.IsValid())return;
+    if(SpeedM==null){
+        SpeedM=Entities.FindByClassname(null, "player_speedmod");
+        if(SpeedM==null){
+            SpeedM=Entities.CreateByClassname("player_speedmod");
+        }
+    }
+    EntFireByHandle(SpeedM,"Modifyspeed","0.9",0,activator,self);
+    EntFireByHandle(SpeedM,"Modifyspeed","1",1.5,activator,self);
     activator.SetOrigin(SummonerAct.GetOrigin());
 }
 
