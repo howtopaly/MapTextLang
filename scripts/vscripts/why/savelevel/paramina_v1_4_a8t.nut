@@ -1,5 +1,5 @@
 function LevelInit(){
-	EntFire("Filter_Upgrade_*", "RunScriptFile", "why/save_level/on_pass.nut", 0, null);
+	EntFire("Filter_Upgrade_*", "RunScriptFile", "why/savelevel/on_pass.nut", 0, null);
 }
 function LevelUp(){
 	local act=activator;
