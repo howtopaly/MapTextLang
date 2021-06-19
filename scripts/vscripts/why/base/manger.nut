@@ -1,4 +1,4 @@
-::LOG_LEVEL<-0;
+::LOG_LEVEL<-3;
 const LOG_CONSOLE=1;
 const LOG_CHAT=2;
 const LOG_MSG=4;
@@ -27,6 +27,22 @@ const LOG_MSG=4;
     if(LOG_LEVEL&4){
         ScriptPrintMessageCenterAll("<font color='#00ff00'>脚本debug："+text+"</font>");
     }
+}
+function Precache(){
+    EntFireByHandle(self,"RunScriptCode","CheckPlayerInfo()",3,null,null);
+};
+function CheckPlayerInfo(){
+    player <- null;
+    while( (player = Entities.FindByClassname(player,"*")) != null ) {
+        if (player.GetClassname() == "player") {
+            if(GetPlayerByHandle(player)==null){
+                player.__KeyValueFromString("rendercolor", "0 255 0");
+            }
+        }
+    }
+    ScriptPrintMessageChatAll(" \x02疑似因stripper生成加载存在延迟，变为绿色的玩家请重进服务器，以免神器等级保存不生效！！！\x01");
+    ScriptPrintMessageChatAll(" \x02疑似因stripper生成加载存在延迟，变为绿色的玩家请重进服务器，以免神器等级保存不生效！！！\x01");
+    ScriptPrintMessageChatAll(" \x02疑似因stripper生成加载存在延迟，变为绿色的玩家请重进服务器，以免神器等级保存不生效！！！\x01");
 }
 gameevents_proxy<-null;
 GameEventsCapturedPlayer <- null;
