@@ -123,6 +123,7 @@ function Think() {
 }
 function Init(){
     if("LevelInit" in self.GetScriptScope()){LevelInit();}
+    ScriptPrintMessageChatAll(" \x04玩家等级保存已加载，如果存在任何问题请直接联系；by：健忘症晚期-2021-06-20\x01");
 }
 function Connected(uid,sid,name){
     if(sid=="BOT")return;
