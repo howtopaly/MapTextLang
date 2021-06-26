@@ -503,8 +503,11 @@ function RoundStart()
 		EntFire("server", "Command", "sm_he_limit 20", 0.00, null);
 		EntFire("server", "Command", "sm_smoke_limit 3", 0.00, null);
 		EntFire("server", "Command", "sm_cvar sm_molotov_limit 5", 0.00, null);
+		EntFire("server", "Command", "sm_cvar sm_taggrenade_limit 2", 0.00, null);
 		EntFire("server", "Command", "sm_cvar zr_infect_mzombie_ratio 7", 0.00, null);
 		EntFire("server", "Command", "sm_cvar sm_mine_limit 2", 0.00, null);
+		EntFire("server", "Command", "sm_cvar hook_boss_money_min 15", 0.00, null);
+		EntFire("server", "Command", "sm_cvar hook_boss_money_max 15", 0.00, null);
 		exmvote_voteallowed = true;
 		EntFireByHandle(self, "RunScriptCode", " exmvote_voteallowed = false; ", 10.90, null, null);
 		ExevRoundStart();
@@ -517,7 +520,7 @@ function RoundStart()
 		EntFire("server", "Command", "sm_he_limit 5", 0.00, null);
 		EntFire("server", "Command", "sm_smoke_limit 1", 0.00, null);
 		EntFire("server", "Command", "sm_cvar sm_molotov_limit 2", 0.00, null);
-		EntFire("server", "Command", "sm_cvar zr_infect_mzombie_ratio 4", 0.00, null);
+		EntFire("server", "Command", "sm_cvar zr_infect_mzombie_ratio 5", 0.00, null);
 		EntFire("server", "Command", "sm_cvar sm_mine_limit 1", 0.00, null);
 	}
 	humanitems_firstround = true;
