@@ -520,7 +520,7 @@ function RoundStart()
 		EntFire("server", "Command", "sm_he_limit 5", 0.00, null);
 		EntFire("server", "Command", "sm_smoke_limit 1", 0.00, null);
 		EntFire("server", "Command", "sm_cvar sm_molotov_limit 2", 0.00, null);
-		EntFire("server", "Command", "sm_cvar zr_infect_mzombie_ratio 5", 0.00, null);
+		EntFire("server", "Command", "sm_cvar zr_infect_mzombie_ratio 5.5", 0.00, null);
 		EntFire("server", "Command", "sm_cvar sm_mine_limit 1", 0.00, null);
 	}
 	humanitems_firstround = true;
