@@ -48,13 +48,13 @@
 		"hammerid"		"1810287"
 		"m_iname"		"boss_charon_phb2"
 	}
-	"1392134"
+	"1942948"
 	{
 		"enable"		"1"
 		"hammerid"		"1942948"
 		"m_iname"		"boss_catgirl_phbox"
 	}
-	"1371624"
+	"1942536"
 	{
 		"enable"		"1"
 		"hammerid"		"1942536"
