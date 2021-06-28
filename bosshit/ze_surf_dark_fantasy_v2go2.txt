@@ -51,14 +51,14 @@
 	"1392134"
 	{
 		"enable"		"1"
-		"hammerid"		"1392134"
-		"m_iname"		"boss_catgirl_pb2"
+		"hammerid"		"1942948"
+		"m_iname"		"boss_catgirl_phbox"
 	}
 	"1371624"
 	{
 		"enable"		"1"
-		"hammerid"		"1371624"
-		"m_iname"		"boss_errorgirl_pb2"
+		"hammerid"		"1942536"
+		"m_iname"		"boss_errorgirl_phbox"
 	}
 	"1412307"
 	{
