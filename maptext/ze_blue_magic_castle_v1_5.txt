@@ -160,7 +160,7 @@
 	{
 		"chi"		"**<<反伤盾，停止射击！---5>>**"
 	}
-"<<< BOSS USE GRAVITY ! GO BACK ! >>> "
+"<<< BOSS USE GRAVITY ! GO BACK ! >>>"
 	{
 		"chi"		"**<<黑洞攻击，快往后退！---5>>**"
 	}
