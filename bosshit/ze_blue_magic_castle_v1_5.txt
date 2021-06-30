@@ -24,11 +24,11 @@
 		"hammerid"		"709567"
 		"m_iname"		"demon_hpbox"
 	}
-	"291638"
+	"291628"
 	{
 		"enable"		"1"
-		"hammerid"		"291638"
-		"m_iname"		"Spider_move"
+		"hammerid"		"291628"
+		"m_iname"		"npc_spider_small_phys_break"
 	}
 	"1264900"
 	{
