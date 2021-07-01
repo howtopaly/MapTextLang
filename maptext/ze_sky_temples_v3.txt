@@ -6,40 +6,39 @@
 	}
 	"<<< Run to first box and defend! >>>"
 	{
-		"chi"		"** 跑到第一个箱子并防守**"
+		"chi"		"** 跑到第一个箱子并防守24秒**"
 	}
 	"<<< Fall back and keep defending! >>>"
 	{
-		"chi"		"** 撤退。。。然后守住**"
+		"chi"		"** 撤退。。。然后守住50秒**"
 	}
 	"<<< Almost there keep defending! >>>"
 	{
-		"chi"		"** 快到了，坚持住**"
+		"chi"		"** 快到了，坚持住50秒**"
 	}
 	"<<< Get behind last pillars for teleport! >>>"
 	{
-		"chi"		"**跑到最后一个柱子并等待传送 **"
-		"DoorCountDown"		"40"
+		"chi"		"**跑到最后一个柱子并等待40秒门关传送**"
 	}
 	"*** Rush to door! ***"
 	{
-		"chi"		"** 快去贴门！**"
+		"chi"		"** 快去贴门，25秒后门开**"
 	}
 	"*** Defend until second door opens! ***"
 	{
-		"chi"		"** 防守到第二个门打开**"
+		"chi"		"** 防守50秒到第二个门打开**"
 	}
 	"*** Defend until third door opens! ***"
 	{
-		"chi"		"** 防守到第三个门打开**"
+		"chi"		"** 防守35秒到第三个门打开**"
 	}
 	"*** Defend inside until door closes! ***"
 	{
-		"chi"		"** 在里面守到门关**"
+		"chi"		"**在里面守到门关**"
 	}
 	"<<< Get inside next temple and defend! >>>"
 	{
-		"chi"		"** 跑到神庙里防守**"
+		"chi"		"** 跑到神庙里防守75秒**"
 	}
 	"<<< Climb the ladder! >>>"
 	{
@@ -95,31 +94,27 @@
 	}
 	"<<< Bulvian The Almighty >>>"
 	{
-		"chi"		"** **"
+		"chi"		"**全能之神Bulvian**"
 	}
 	"<<< Gale >>>"
 	{
-		"chi"		">>>大风<<<"
+		"chi"		">>>大风---5<<<"
 	}
 	"<<< Fire Spin >>>"
 	{
-		"chi"		">>>旋火<<<"
+		"chi"		">>>旋火---5<<<"
 	}
 	"<<< Breakout >>>"
 	{
-		"chi"		">>>僵尸潮<<<"
+		"chi"		">>>僵尸潮---5<<<"
 	}
 	"<<< Torment >>>"
 	{
-		"chi"		">>>痛苦<<<"
+		"chi"		">>>痛苦---5<<<"
 	}
 	"<<< Glide >>>"
 	{
-		"chi"		">>>低摩擦<<<"
-	}
-	"sync_version"
-	{
-		"syncvalue"		"80974"
+		"chi"		">>>低摩擦---5<<<"
 	}
 	"<<< Level 1 >>>"
 	{
@@ -147,8 +142,7 @@
 	}
 	"<<< Defend for 60 seconds! >>>"
 	{
-		"DoorCountDown"		"60"
-		"chi"		"** **"
+		"chi"		"**防守60秒（十五秒后面的门打开，守到门关）**"
 	}
 	"<<< Disperse >>>"
 	{
