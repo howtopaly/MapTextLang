@@ -4,7 +4,7 @@
 //	match:
 //	{
 //		"classname" "trigger_hurt"
-//		"targetname" "看情况要不要写"
+//		"targetname" "看情况要不要写，如果下面的情况不会有影响，也可以不写这里直接对所有hurt生效"
 //	}
 //	insert:
 //	{
