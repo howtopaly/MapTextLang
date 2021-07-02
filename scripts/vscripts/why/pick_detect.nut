@@ -27,7 +27,6 @@ function EPick(){
 	ScriptPrintMessageChatAll(" \x02按e仔被点燃了，笑他\x01");
 }
 
-//self.ConnectOutput("OnPlayerUse","EPick");
-EntFireByHandle(self, "addoutput", "OnPlayerUse "+self.GetName()+":runscriptcode:EPick():0:-1", 0, null, null);
+self.ConnectOutput("OnPlayerUse","EPick");
 self.__KeyValueFromInt("CanBePickedUp",0);
 Detect();
