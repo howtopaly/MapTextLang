@@ -18,16 +18,15 @@
 	}
 	"Magical Piece of shit moves in 40 Seconds!"
 	{
-		"chi"		"**40秒后移动！ **"
-		"DoorCountDown"		"40"
+		"chi"		"**魔法平台40秒后移动！ **"
 	}
 	"Magical Piece of shit moves in 20 Seconds!"
 	{
-		"chi"		"**20秒后移动！ **"
+		"chi"		"**2魔法平台0秒后移动！ **"
 	}
 	"Magical Piece of shit moves in 5 Seconds!"
 	{
-		"chi"		"**5秒后移动！ **"
+		"chi"		"**魔法平台5秒后移动！ **"
 	}
 	"Player has picked up heal!"
 	{
@@ -99,7 +98,7 @@
 	}
 	"Way is open! Teleporting the delaying fags in 8 secs!"
 	{
-		"chi"		"**门开了！ **"
+		"chi"		"**门开了！走得慢的8秒后传送**"
 	}
 	"Teleporting Zombies"
 	{
@@ -108,7 +107,6 @@
 	"Survive Here for 60 Seconds to win"
 	{
 		"chi"		"**保住你的菊花60秒获得胜利！ **"
-		"DoorCountDown"		"60"
 	}
 	"Teleporting Zombies in 20 Seconds!"
 	{
@@ -138,7 +136,6 @@
 	"Survive Here for 80 Seconds to win"
 	{
 		"chi"		"**保住你的菊花80秒后获得胜利**"
-		"DoorCountDown"		"80"
 	}
 	"###$$$%%%LEVEL 3%%%$$$###"
 	{
@@ -210,7 +207,7 @@
 	}
 	"MUDA MUDA MUDA MUDA MUDA MUDA"
 	{
-		"chi"		"**MUDA！5秒后激活反伤图片---不要开枪！！！**"
+		"chi"		"**5秒后激活反伤图片---不要开枪！！！**"
 	}
 	"MUDA MUDA MUDA MUDA MUDA"
 	{
@@ -226,7 +223,7 @@
 	}
 	"OH MY GOD!!!!!"
 	{
-		"chi"		"**天呀！按住S后退键抵抗吸力7秒 **"
+		"chi"		"**天呀！后退键抵抗吸力7秒 **"
 	}
 	"OH MY GOD!!!!! OH SHIT!!! OH NO!!!!"
 	{
@@ -238,7 +235,7 @@
 	}
 	"BROKEN BB_IU AAAAAAAAAAAAAAAA"
 	{
-		"chi"		"**看正前面躲避冲过来的图片----4 **"
+		"chi"		"**看正前面躲避冲过来的图片----6**"
 	}
 	"This door might open in 25 Sec"
 	{
@@ -266,30 +263,30 @@
 	}
 	"Hold for 20 Seconds!"
 	{
-		"chi"		"** **"
+		"chi"		"**守住20秒**"
 	}
 	"Teleporting humans inside in 15 seconds"
 	{
-		"chi"		"** **"
+		"chi"		"**15秒后激活传送进BOSS房**"
 	}
 	"Boss Fight in 5 Seconds!"
 	{
-		"chi"		"** **"
+		"chi"		"**5秒后开启BOSS战**"
 	}
 	"Path is open, Teleporting Zombies in 10 Seconds!"
 	{
-		"chi"		"** **"
+		"chi"		"**路开了，10秒后传送僵尸**"
 	}
 	"Door opens in 15 Seconds!"
 	{
-		"chi"		"** **"
+		"chi"		"**门将在15秒后打开**"
 	}
 	"Final Door Opens in 40 Seconds!"
 	{
-		"chi"		"** **"
+		"chi"		"**最后大门将在40秒后打开**"
 	}
 	"Final Door Opens in 20 Seconds!"
 	{
-		"chi"		"** **"
+		"chi"		"**最后大门将在20秒后打开**"
 	}
 }
