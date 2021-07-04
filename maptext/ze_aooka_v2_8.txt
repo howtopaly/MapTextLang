@@ -30,11 +30,11 @@
 	}
 "***Half chop - Right Sabre***"
 	{
-		"chi"		"**半场砍击--右侧跳刀(面对BOSS去左边)----5**"
+		"chi"		"**半场砍击--右侧跳刀(面对BOSS去右边)----5**"
 	}
 "***Half chop - Left Sabre***"
 	{
-		"chi"		"**半场砍击--左侧跳刀(面对BOSS去右边)----5**"
+		"chi"		"**半场砍击--左侧跳刀(面对BOSS去左边)----5**"
 	}
 "<The death penalty has been lifted>"
 	{
@@ -42,7 +42,7 @@
 	}
 "***Star of destruction***"
 	{
-		"chi"		"**破坏之星---5**"
+		"chi"		"**破坏之星(要四个人去踩下前后左右凸起的平台,会掉血)---6**"
 	}
 "***Breaking through the air***"
 	{
@@ -58,11 +58,11 @@
 	}
 "***EX - Tian Fa Fei Zui - Inner ring attack***"
 	{
-		"chi"		"**极限-天罚非罪-内圈攻击---5**"
+		"chi"		"**极限-天罚非罪-内圈攻击(蹲下)---5**"
 	}
 "***EX - Tian Fa Fei Zui - Outer ring attack***"
 	{
-		"chi"		"**极限-天罚非罪-外圈攻击---5**"
+		"chi"		"**极限-天罚非罪-外圈攻击(蹲下)---5**"
 	}
 "***Monthly current Ion beam***"
 	{
