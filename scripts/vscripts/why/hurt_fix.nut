@@ -19,8 +19,11 @@ if(self.GetClassname().slice(0,8)!="trigger_")return;
 if(self.GetMoveParent()==null)return;
 
 local hurtN=self.GetName();
-if(hurtN==null){
+if(hurtN==""){
 	hurtN=UniqueString("bugdmgfix_hurt");
+	self.__KeyValueFromString("targetname", hurtN);
+}else if(hurtN == self.GetPreTemplateName() && self.GetMoveParent().GetName() != self.GetMoveParent().GetPreTemplateName()){
+	hurtN=hurtN+"&&"+self.GetMoveParent().GetName();
 	self.__KeyValueFromString("targetname", hurtN);
 }
 
