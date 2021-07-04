@@ -17,6 +17,7 @@ Bxzl_Item_Fire_Gametext <- null;
 Bxzl_Item_Heal_Gametext <- null;
 Bxzl_Item_Ice_Gametext <- null;
 Bxzl_Item_Ammo_Gametext <- null;
+Bxzl_Item_Help_Gametext <- null;
 
 Bxzl_Item_Zshield_Gametext <- null;
 Bxzl_Item_Zbgold_Gametext <- null;
@@ -24,6 +25,7 @@ Bxzl_Item_Zice_Gametext <- null;
 Bxzl_Item_Zgravity_Gametext <- null;
 Bxzl_Item_Zfire_Gametext <- null;
 Bxzl_Item_Zwarp_Gametext <- null;
+Bxzl_Item_Zgravity2_Gametext <- null;
 
 bxzl_text_array <- [
     { 
@@ -32,7 +34,7 @@ bxzl_text_array <- [
     },//0
 
     {
-        array_message="聚魂引 - 僵尸传送至BOSS正下方 - BOSS战开始后90秒时释放"
+        array_message="聚魂引 - 僵尸传送至BOSS正下方 - BOSS战开始后每隔90秒释放"
         array_holdtime=5.0
     },//1
 
@@ -67,7 +69,7 @@ bxzl_text_array <- [
     },//7
 
     { 
-        array_message="诸魂雁镇 - 场地三魂色伤害,去没有提到的颜色位置"
+        array_message="诸魂雁镇 - 场地三魂色伤害"
         array_holdtime=5.0
     },//8
 
@@ -115,7 +117,7 @@ bxzl_text_array <- [
         array_holdtime=0.5
     },//18
     { 
-        array_message="script by bxzl on 2021.06.20"
+        array_message="script by bxzl on 2021.07.04"
         array_holdtime=5
     },//19
     { 
@@ -139,13 +141,15 @@ function Say_ScriptDate()
     Bxzl_Item_Heal_Gametext = Entities.FindByName(null,"Bxzl_Item_Heal_Gametext");
     Bxzl_Item_Ice_Gametext = Entities.FindByName(null,"Bxzl_Item_Ice_Gametext");
     Bxzl_Item_Ammo_Gametext = Entities.FindByName(null,"Bxzl_Item_Ammo_Gametext");
+    Bxzl_Item_Help_Gametext = Entities.FindByName(null,"Bxzl_Item_Help_Gametext");
     Bxzl_Item_Zshield_Gametext = Entities.FindByName(null,"Bxzl_Item_Zshield_Gametext");
     Bxzl_Item_Zbgold_Gametext = Entities.FindByName(null,"Bxzl_Item_Zbgold_Gametext");
     Bxzl_Item_Zice_Gametext = Entities.FindByName(null,"Bxzl_Item_Zice_Gametext");
     Bxzl_Item_Zgravity_Gametext = Entities.FindByName(null,"Bxzl_Item_Zgravity_Gametext");
     Bxzl_Item_Zfire_Gametext = Entities.FindByName(null,"Bxzl_Item_Zfire_Gametext");
     Bxzl_Item_Zwarp_Gametext = Entities.FindByName(null,"Bxzl_Item_Zwarp_Gametext");
-    EntFire("cmd","Command","say script by bxzl on 2021.06.20",0.00,null);
+    Bxzl_Item_Zgravity2_Gametext = Entities.FindByName(null,"Bxzl_Item_Zgravity2_Gametext");
+    EntFire("cmd","Command","say script by bxzl on 2021.07.04",0.00,null);
     EntFire("cmd","Command","改动一 增加神器拾取时候提示",1.00,null);
     EntFire("cmd","Command","改动二 增加第三关BOSS技能详细提示",2.00,null);
 }
@@ -154,7 +158,7 @@ function Set_ItemText()
 {
     if (Bxzl_Item_Water_Gametext != null)
     {
-        Bxzl_Item_Water_Gametext.__KeyValueFromString("message", "水神器\n按E使用时在持有者正面生成一个跟随直线推力水\n推开同时减速近距离僵尸\n持续时间: 7秒\n用水神器的时候会将人类火神器的效果清除\n能对第二关和第三关BOSS造成300点伤害");
+        Bxzl_Item_Water_Gametext.__KeyValueFromString("message", "水神器\n按E使用时在持有者正面生成一个跟随直线推力水\n推开僵尸\n若此时使用电神器,水将附带减速效果\n持续时间: 7秒\n用水神器的时候会将人类火神器的效果清除\n能对第二、三、四关BOSS造成300点伤害");
     }
     if (Bxzl_Item_Gold_Gametext != null)
     {
@@ -162,7 +166,7 @@ function Set_ItemText()
     }
     if (Bxzl_Item_Electro_Gametext != null)
     {
-        Bxzl_Item_Electro_Gametext.__KeyValueFromString("message", "电神器\n按E使用时在持有者正面生成一个跟随直线电光\n减速僵尸\n持续时间: 3秒\n能对第二关和第三关BOSS造成75点伤害");
+        Bxzl_Item_Electro_Gametext.__KeyValueFromString("message", "电神器\n按E使用时在持有者正面生成一个跟随直线电光\n减速僵尸\n在使用水或者火神器时使用电神器能增加对应神器效果\n持续时间: 3秒\n能对第二、三、四关BOSS造成75点伤害");
     }
     if (Bxzl_Item_Wind_Gametext != null)
     {
@@ -170,7 +174,7 @@ function Set_ItemText()
     }
     if (Bxzl_Item_Fire_Gametext != null)
     {
-        Bxzl_Item_Fire_Gametext.__KeyValueFromString("message", "火神器\n按E使用时在正前方生成固定圆形火圈\n燃烧并伤害僵尸\n持续时间: 7秒\n用火神器的时候会将人类冰神器的效果清除\n能对第二关和第三关BOSS造成300点伤害");
+        Bxzl_Item_Fire_Gametext.__KeyValueFromString("message", "火神器\n按E使用时在正前方生成固定圆形火圈\n燃烧并伤害僵尸\n若此时使用电神器,火将附带电效果\n持续时间: 7秒\n用火神器的时候会将人类冰神器的效果清除\n能对第二、三、四关BOSS造成300点伤害");
     }
     if (Bxzl_Item_Heal_Gametext != null)
     {
@@ -178,11 +182,15 @@ function Set_ItemText()
     }
     if (Bxzl_Item_Ice_Gametext != null)
     {
-        Bxzl_Item_Ice_Gametext.__KeyValueFromString("message", "冰神器\n按E使用时在持有者周围生成固定冰圈,冻住僵尸\n持续时间: 7秒\n能对第二关和第三关BOSS造成300点伤害");
+        Bxzl_Item_Ice_Gametext.__KeyValueFromString("message", "冰神器\n按E使用时在持有者周围生成固定冰圈,冻住僵尸\n持续时间: 7秒\n能对第二、三、四关BOSS造成300点伤害");
     }
     if (Bxzl_Item_Ammo_Gametext != null)
     {
         Bxzl_Item_Ammo_Gametext.__KeyValueFromString("message", "弹药神器\n按E使用时在持有者周围形成跟随弹药补给圈\n持续时间: 10秒");
+    }
+    if (Bxzl_Item_Help_Gametext != null)
+    {
+        Bxzl_Item_Help_Gametext.__KeyValueFromString("message", "求救神器\n按E使用时持有者单人1.5倍加速和免疫僵尸\n持续时间: 4秒");
     }
 
     if (Bxzl_Item_Zshield_Gametext != null)
@@ -191,7 +199,7 @@ function Set_ItemText()
     }
     if (Bxzl_Item_Zbgold_Gametext != null)
     {
-        Bxzl_Item_Zbgold_Gametext.__KeyValueFromString("message", "僵尸破坏金轮神器\n按E使用时将人类正在生效的金轮神器破坏\n同时给与持有者2.5倍的加速效果\n持续时间: 破坏效果瞬间,加速效果5秒");
+        Bxzl_Item_Zbgold_Gametext.__KeyValueFromString("message", "僵尸破坏金轮神器\n按E使用时将人类正在生效的金轮神器破坏\n同时给与持有者2.5倍的加速效果\n右键在原地生成一个加速带\n持续时间: 破坏效果瞬间,按E加速效果5秒");
     }
     if (Bxzl_Item_Zice_Gametext != null)
     {
@@ -208,6 +216,10 @@ function Set_ItemText()
     if (Bxzl_Item_Zwarp_Gametext != null)
     {
         Bxzl_Item_Zwarp_Gametext.__KeyValueFromString("message", "僵尸秒杀神器\n按E使用时秒杀持有者正前方的人类\n持续时间: 0.5秒");
+    }
+    if (Bxzl_Item_Zgravity2_Gametext != null)
+    {
+        Bxzl_Item_Zgravity2_Gametext.__KeyValueFromString("message", "僵尸黑洞球\n按E使用时直线发出一个黑洞球,吸住周围的人类\n并一段时间后返回初始点");
     }
 }
 
