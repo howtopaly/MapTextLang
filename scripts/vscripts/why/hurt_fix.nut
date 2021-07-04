@@ -12,6 +12,7 @@
 //	}
 //}
 //注意事项：
+//0、如果trigger_hurt有多个同名实体，且parent对象并非template生成或勾了don't do namefix，会导致hurt移动异常
 //1、如果hurt实体本身有脚本会覆盖本身的脚本，请手动找出并改成replace
 //2、高速移动的hurt该方式会导致hurt会慢一些到达，预计差距为 速度/32（由于速度快到的也会更快，大致理解成晚0.03秒左右到达），door的延迟似乎会更大
 //3、每个hurt会对应多两个实体
@@ -19,8 +20,11 @@ if(self.GetClassname().slice(0,8)!="trigger_")return;
 if(self.GetMoveParent()==null)return;
 
 local hurtN=self.GetName();
-if(hurtN==null){
+if(hurtN==""){
 	hurtN=UniqueString("bugdmgfix_hurt");
+	self.__KeyValueFromString("targetname", hurtN);
+}else if(hurtN == self.GetPreTemplateName() && self.GetMoveParent().GetName() != self.GetMoveParent().GetPreTemplateName()){
+	hurtN=hurtN+"&&"+self.GetMoveParent().GetName();
 	self.__KeyValueFromString("targetname", hurtN);
 }
 
