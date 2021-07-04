@@ -1,8 +1,20 @@
 "Console_T"
 {
-"<Congratulations on your clearance of this map!!!.>"
+"ze_aooka:Palace of the Dragon"
 	{
-		"chi"		"**<恭喜通关本地图>**"
+		"chi"		"**青岡: 龙之殿**"
+	}
+"Map by vueru"
+	{
+		"chi"		"**地图作者: vueru  翻译及提示脚本: 冰雪葬泪**"
+	}
+"Thanks 克劳⑨  CD意识  亲王"
+	{
+		"chi"		"**感谢 克劳⑨ CD意识 亲王**"
+	}
+"Thank you for playing with this map"
+	{
+		"chi"		"**感谢游玩本地图**"
 	}
 "<The teleport platform starts in XX>"
 	{
