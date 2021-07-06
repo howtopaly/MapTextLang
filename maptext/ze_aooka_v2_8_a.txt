@@ -174,13 +174,13 @@
 	}
 "***Hun Xing***"
 	{
-		"chi"		"**魂星---5**"
+		"chi"		"**魂星(僵尸金轮破坏右键使用了加速)**"
 	}
 "***Ka-Ka-Ka***"
 	{
 		"chi"		"**咔-咔-咔**"
 	}
-"<It's safe for the time being...>"
+"<Its safe for the time being...>"
 	{
 		"chi"		"**<我们暂时安全了>**"
 	}
